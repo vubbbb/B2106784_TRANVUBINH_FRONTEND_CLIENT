@@ -22,6 +22,11 @@ const router = createRouter({
             path: 'dashboard',
             name: 'dashboard',
             component: () => import('../components/HomeSlider.vue'),
+        },
+        {
+            path: 'user',
+            name: 'user',
+            component: () => import('../components/UserInfo.vue'),
         }
     //     {
     //       path: 'inventory',

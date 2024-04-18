@@ -109,7 +109,7 @@
       >
         <q-scroll-area class="fit">
           <q-list padding class="text-grey-8">
-            <q-item class="GNL__drawer-item" v-ripple v-for="link in links1" :key="link.text" clickable >
+            <q-item class="GNL__drawer-item" v-ripple v-for="link in links1" :key="link.text" clickable :to="link.link">
               <q-item-section avatar>
                 <q-icon :name="link.icon" />
               </q-item-section>
@@ -204,28 +204,9 @@
   
         links1: [
           { icon: 'web', text: 'Dashboard' , link: '/dashboard'},
-          { icon: 'person', text: 'Account' },
-          { icon: 'star_border', text: 'Favourites' },
-          { icon: 'search', text: 'Saved searches' }
-        ],
-        links2: [
-          { icon: 'flag', text: 'Canada' },
-          { icon: fasEarthAmericas, text: 'World' },
-          { icon: 'place', text: 'Local' },
-          { icon: 'domain', text: 'Business' },
-          { icon: 'memory', text: 'Technology' },
-          { icon: 'local_movies', text: 'Entertainment' },
-          { icon: 'directions_bike', text: 'Sports' },
-          { icon: fasFlask, text: 'Science' },
-          { icon: 'fitness_center', text: 'Health ' }
-        ],
-        links3: [
-          { icon: '', text: 'Language & region' },
-          { icon: '', text: 'Settings' },
-          { icon: 'open_in_new', text: 'Get the Android app' },
-          { icon: 'open_in_new', text: 'Get the iOS app' },
-          { icon: '', text: 'Send feedback' },
-          { icon: 'open_in_new', text: 'Help' }
+          { icon: 'book', text: 'Books', link: '/books' },
+          { icon: 'person', text: 'Account', link: '/user' },
+          { icon: 'inventory', text: 'Your Order', link: '/order' }
         ],
   
         onClear,

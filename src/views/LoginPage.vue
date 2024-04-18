@@ -59,7 +59,7 @@
         const response = await axios.post('http://localhost:3333/api/auth/login', this.login);
         localStorage.setItem('token', response.data.accessToken);
         if (response.status === 200) {
-          this.$router.push('/');
+          this.$router.push('/dashboard');
           toast.success('Login successfully');
         }
       } catch (error) {
