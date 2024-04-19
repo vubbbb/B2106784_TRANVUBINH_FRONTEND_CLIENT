@@ -27,36 +27,17 @@ const router = createRouter({
             path: 'user',
             name: 'user',
             component: () => import('../components/UserInfo.vue'),
+        },
+        {
+          path: 'order',
+          name: 'order',
+          component: () => import('../components/Order.vue'),
+        },
+        {
+          path: 'search',
+          name: 'search',
+          component: () => import('../components/SearchPage.vue'),
         }
-    //     {
-    //       path: 'inventory',
-    //       name: 'inventory',
-    //       component: () => import('../views/Inventory.vue'),
-    //       children: [
-    //         {
-    //           path: 'books',
-    //           component: () => import('../components/BooksList.vue'),
-    //         },
-    //         {
-    //           path: 'addbook',
-    //           component: () => import('../components/AddBookForm.vue')
-    //         },
-    //         {
-    //           path: 'updatebook/:id',
-    //           component: () => import('../components/UpdateBookForm.vue')
-    //         }
-    //       ]
-    //     },
-    //     {
-    //       path: 'orders',
-    //       name: 'orders',
-    //       component: () => import('../views/Orders.vue')
-    //     },
-    //     {
-    //       path: 'customers',
-    //       name: 'customers',
-    //       component: () => import('../views/Customers.vue')
-    //     }
       ]
     }
 

@@ -55,9 +55,9 @@ export default {
     background-color: #bdc2c5;
 }
 
-.book-card {
+.bookcard {
     flex: 1 0 200px;
-    margin: 10px;
+    margin: 5px;
     max-width: 300px;
 
 }
