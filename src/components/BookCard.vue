@@ -1,5 +1,5 @@
 <template>
-  <q-card class="my-card" flat bordered>
+  <q-card class="my-card" flat bordered @click="orderBook">
     <q-card-section class="image-section">
       <q-img :src="image" class="image" />
     </q-card-section>
@@ -49,19 +49,21 @@ export default {
     yearOfPublication: Number,
     image: String
   },
-  methods: {}
+  methods: {
+    orderBook() {
+      router.push('order/' + this._id);
+    }
+  }
 };
 </script>
 
 <style scoped>
 .my-card {
-  width: 15rem;
+  width: 18rem;
   display: flex;
-  /* Use Flexbox */
   flex-direction: column;
-  /* Arrange items vertically */
   justify-content: space-between;
-  /* Evenly distribute space between items */
+
 }
 
 /* Optional: Adjust the height of the card */
@@ -71,10 +73,14 @@ export default {
 }
 
 /* Optional: Limit the height of the image */
-.q-img {
-  height: 15rem;
-  
+.image {
+  height: 20rem;
+  align-items: center;
 }
 
-
+.image-section {
+  height: 15rem;
+  width: 15rem;
+  align-items: center;
+}
 </style>

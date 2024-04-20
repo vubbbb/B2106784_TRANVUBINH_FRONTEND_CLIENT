@@ -33,7 +33,8 @@
       <q-scroll-area class="fit">
         <q-list padding class="text-grey-8">
           <!-- Dynamic Navigation Links -->
-          <q-item class="GNL__drawer-item" v-ripple v-for="link in navigationLinks" :key="link.text" :to="link.link" clickable>
+          <q-item class="GNL__drawer-item" v-ripple v-for="link in navigationLinks" :key="link.text" :to="link.link"
+            clickable>
             <q-item-section avatar>
               <q-icon :name="link.icon" />
             </q-item-section>
@@ -59,10 +60,11 @@
     </q-drawer>
 
     <!-- Page Content -->
-    <q-page-container>
+    <q-page-container class="q-mx-auto q-my-auto main-router-view">
       <!-- Router View -->
       <router-view />
     </q-page-container>
+
   </q-layout>
 </template>
 
@@ -74,7 +76,7 @@ import router from '../router';
 export default {
   name: 'GoogleNewsLayout',
 
-  setup () {
+  setup() {
     const leftDrawerOpen = ref(false)
     const search = ref('')
     const route = useRoute()
@@ -89,15 +91,15 @@ export default {
       ]
     })
 
-    function toggleLeftDrawer () {
+    function toggleLeftDrawer() {
       leftDrawerOpen.value = !leftDrawerOpen.value
     }
 
-    function clearSearch () {
+    function clearSearch() {
       search.value = ''
     }
 
-    function searchBooks () {
+    function searchBooks() {
       if (search.value.trim() !== '') {
         // Navigate to search results page with search query
         router.push('/search?q=' + search.value.trim())
