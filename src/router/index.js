@@ -51,20 +51,17 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  // Kiểm tra xem route hiện tại có yêu cầu đăng nhập hay không
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    // Kiểm tra xem người dùng đã đăng nhập hay chưa
     if (!localStorage.getItem('token')) {
-      // Nếu người dùng chưa đăng nhập, chuyển hướng họ đến trang đăng nhập
       next({
         path: '/login',
         query: { redirect: to.fullPath }
       });
     } else {
-      next(); // cho phép người dùng tiếp tục truy cập route
+      next(); 
     }
   } else {
-    next(); // cho phép người dùng tiếp tục truy cập route
+    next(); 
   }
 });
 

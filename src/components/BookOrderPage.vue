@@ -22,12 +22,8 @@
 
 <script>
 import axios from 'axios';
-import BookCard from '../components/BookCard.vue';
 
 export default {
-    components: {
-        BookCard
-    },
     data() {
         return {
             books: [],
@@ -37,24 +33,42 @@ export default {
     async created() {
         try {
             const token = localStorage.getItem('token');
-            const orderId = this.$route.path.split('/').pop();
-            const response = await axios.get('http://localhost:3333/api/book/' + orderId, {
+            const bookId = this.$route.path.split('/').pop();
+            const response = await axios.get('http://localhost:3333/api/book/' + bookId, {
                 headers: {
                     token: `Bearer ${token}`
                 }
             });
+            console.log(response.data);
             this.books = response.data;
         } catch (error) {
             console.error(error);
         }
     },
     methods: {
-        rentBook() {
-            // Implement logic to rent the book
+        async rentBook() {
+            try {
+                const token = localStorage.getItem('token');
+                const bookId = this.$route.path.split('/').pop();
+                const response = await axios.post('http://localhost:3333/api/order', {
+                    token,
+                    bookId,
+                    quantity: this.quantity
+                }, {
+                    headers: {
+                        token: `Bearer ${token}`
+                    }
+                });
+                // Xử lý kết quả sau khi mượn sách thành công (nếu cần)
+            } catch (error) {
+                console.error('Error renting book:', error);
+                // Xử lý lỗi nếu cần
+            }
         }
     }
 }
 </script>
+
 
 <style scoped>
 .order-card {
