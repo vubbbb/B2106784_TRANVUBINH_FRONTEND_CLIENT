@@ -7,6 +7,7 @@
                 <div class="product-details">
                     <h4>{{ books.name }}</h4>
                     <h6>Tác giả: {{ books.author }}</h6>
+                    <h6>Nhà xuất bản: {{ books.publisher ? books.publisher.label : 'N/A' }}</h6>
                     <h5>Giá thuê: {{ books.cost }}đ</h5>
                     <h5>Còn {{ books.quantity }} quyển khả dụng</h5>
                 </div>
@@ -22,7 +23,8 @@
 
 <script>
 import axios from 'axios';
-
+import { useToast } from 'vue-toastification';
+const toast = useToast();
 export default {
     data() {
         return {
@@ -32,6 +34,7 @@ export default {
     },
     async created() {
         try {
+
             const token = localStorage.getItem('token');
             const bookId = this.$route.path.split('/').pop();
             const response = await axios.get('http://localhost:3333/api/book/' + bookId, {
@@ -48,6 +51,12 @@ export default {
     methods: {
         async rentBook() {
             try {
+                if (this.quantity < 1) {
+                    return toast.error('Số lượng phải lớn hơn 0!');
+                } 
+                else if (this.quantity > this.books.quantity) {
+                    return toast.error('Số lượng sách không đủ!');
+                }
                 const token = localStorage.getItem('token');
                 const bookId = this.$route.path.split('/').pop();
                 const response = await axios.post('http://localhost:3333/api/order', {
@@ -59,10 +68,10 @@ export default {
                         token: `Bearer ${token}`
                     }
                 });
-                // Xử lý kết quả sau khi mượn sách thành công (nếu cần)
+                toast.success('Tạo đơn mượn sách thành công!');
             } catch (error) {
                 console.error('Error renting book:', error);
-                // Xử lý lỗi nếu cần
+                toast.error('Đã có lỗi xảy ra, vui lòng thử lại sau!');
             }
         }
     }

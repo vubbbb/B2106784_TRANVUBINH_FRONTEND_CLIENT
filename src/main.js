@@ -2,8 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { Quasar } from 'quasar'
-// import Toast from "vue-toastification";
-// import "vue-toastification/dist/index.css";
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
 
 const toastOptions = {
     position: "top-right",
@@ -19,6 +19,7 @@ import 'quasar/src/css/index.sass'
 
 const app = createApp(App)
 
+app.use(Toast, toastOptions)
 app.use(Quasar, { plugins: {}}).use(router)
 
 app.mount('#app')

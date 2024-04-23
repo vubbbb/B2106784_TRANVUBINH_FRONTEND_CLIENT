@@ -41,7 +41,9 @@
   <script>
   import { ref, onMounted } from 'vue'
   import axios from 'axios'
-  
+  import { useToast } from 'vue-toastification';
+  const toast = useToast();
+
   const columns = [
     {
       name: 'index',
