@@ -48,7 +48,7 @@
           <!-- Static Footer Links -->
           <div class="q-mt-md">
             <div class="flex flex-center q-gutter-xs">
-              <a class="GNL__drawer-footer-link" href="javascript:void(0)" aria-label="Privacy">Privacy</a>
+              <a class="GNL__drawer-footer-link" href="https://github.com/vubbbb" aria-label="Privacy">Github</a>
               <span> · </span>
               <a class="GNL__drawer-footer-link" href="javascript:void(0)" aria-label="Terms">Terms</a>
               <span> · </span>
@@ -87,7 +87,7 @@ export default {
         { icon: 'web', text: 'Dashboard', link: '/dashboard' },
         { icon: 'book', text: 'Books', link: '/books' },
         { icon: 'person', text: 'Account', link: '/user' },
-        { icon: 'inventory', text: 'Your Order', link: '/order' }
+        { icon: 'inventory', text: 'Your Orders', link: '/orders' }
       ]
     })
 

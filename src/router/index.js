@@ -43,6 +43,11 @@ const router = createRouter({
           path: 'order/:id',
           name: 'order',
           component: () => import('../components/BookOrderPage.vue'),
+        },
+        {
+          path: 'orders',
+          name: 'orders',
+          component: () => import('../components/Order.vue'),
         }
       ]
     }
