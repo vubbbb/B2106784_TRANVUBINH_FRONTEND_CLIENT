@@ -48,7 +48,7 @@ export default {
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
 }
 
 .search {

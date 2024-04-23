@@ -1,9 +1,8 @@
 <template>
-  <q-card class="my-card" flat bordered @click="orderBook">
-    <q-card-section class="image-section">
+  <q-card class="my-card"  flat bordered @click="orderBook" >
+    <q-card-section class="image-section ">
       <q-img :src="image" class="image" />
     </q-card-section>
-
     <q-card-section>
       <q-btn fab color="primary" icon="shopping_cart" class="absolute"
         style="top: 0; right: 12px; transform: translateY(-50%);" />
@@ -69,18 +68,19 @@ export default {
 /* Optional: Adjust the height of the card */
 .q-card__section {
   flex: 1;
-  /* Distribute remaining space evenly among sections */
 }
 
 /* Optional: Limit the height of the image */
 .image {
-  height: 20rem;
+  height: 25rem;
   align-items: center;
 }
 
 .image-section {
-  height: 15rem;
-  width: 15rem;
-  align-items: center;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
 </style>

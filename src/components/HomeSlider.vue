@@ -12,10 +12,10 @@
         @mouseenter="autoplay = false"
         @mouseleave="autoplay = true"
       >
-        <q-carousel-slide :name="1" img-src="https://cdn.quasar.dev/img/mountains.jpg" />
-        <q-carousel-slide :name="2" img-src="https://cdn.quasar.dev/img/parallax1.jpg" />
-        <q-carousel-slide :name="3" img-src="https://cdn.quasar.dev/img/parallax2.jpg" />
-        <q-carousel-slide :name="4" img-src="https://cdn.quasar.dev/img/quasar.jpg" />
+        <q-carousel-slide :name="1" img-src="https://shareviet.net/wp-content/uploads/2023/04/phong-ngay-hoi-doc-sach-file-corel-4233.jpg" />
+        <q-carousel-slide :name="2" img-src="https://sharefilepdf.com/attachments/ngay-hoi-doc-sach-tieu-hoc-nguyen-cong-tru-png.3427/" />
+        <q-carousel-slide :name="3" img-src="https://th.bing.com/th/id/OIP.mpEZdpNZETA8ztAt2qAKewHaEK?rs=1&pid=ImgDetMain" />
+        <q-carousel-slide :name="4" img-src="https://static.wixstatic.com/media/385cad_c4efce04318f4ace9eec1e9e3a4a9cf9~mv2.png/v1/fill/w_1000,h_563,al_c,q_90,usm_0.66_1.00_0.01/385cad_c4efce04318f4ace9eec1e9e3a4a9cf9~mv2.png" />
       </q-carousel>
     </div>
   </template>

@@ -21,8 +21,15 @@
             <q-icon v-else name="clear" class="cursor-pointer" @click="clearSearch" />
           </template>
         </q-input>
-
         <q-space />
+        <q-item class="GNL__drawer-item" v-ripple clickable @click="logout">
+          <q-item-section avatar>
+            <q-icon name="logout" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Đăng xuất</q-item-label>
+          </q-item-section>
+        </q-item>
       </q-toolbar>
     </q-header>
 
@@ -67,6 +74,7 @@
 <script>
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { useToast } from 'vue-toastification'
 import router from '../router';
 
 export default {
@@ -76,6 +84,7 @@ export default {
     const leftDrawerOpen = ref(false)
     const search = ref('')
     const route = useRoute()
+    const toast = useToast()
 
     // Navigation Links
     const navigationLinks = computed(() => {
@@ -101,6 +110,10 @@ export default {
         router.push('/search?q=' + search.value.trim())
       }
     }
+    function logout() {
+      localStorage.removeItem('token');
+      location.reload();
+    }
 
     return {
       leftDrawerOpen,
@@ -108,7 +121,8 @@ export default {
       navigationLinks,
       toggleLeftDrawer,
       clearSearch,
-      searchBooks
+      searchBooks,
+      logout
     }
   }
 }
