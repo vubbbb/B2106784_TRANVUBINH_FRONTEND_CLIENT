@@ -3,22 +3,22 @@
       <!-- Thanh navbar -->
       <div class="q-gutter-md q-mb-md">
         <q-btn-group size="md">
-          <q-btn label="All" @click="filterOrders('all')" />
-          <q-btn label="Pending" @click="filterOrders('pending')" />
-          <q-btn label="Approved" @click="filterOrders('approved')" />
-          <q-btn label="Rejected" @click="filterOrders('rejected')" />
-          <q-btn label="Completed" @click="filterOrders('completed')" />
+          <q-btn label="Tất cả đơn mượn" @click="filterOrders('all')" />
+          <q-btn label="Đang chờ" @click="filterOrders('pending')" />
+          <q-btn label="Đã được chấp nhận" @click="filterOrders('approved')" />
+          <q-btn label="Đã hủy/Từ chối" @click="filterOrders('rejected')" />
+          <q-btn label="Đã hoàn thành" @click="filterOrders('completed')" />
         </q-btn-group>
       </div>
   
       <!-- Bảng hiển thị đơn hàng -->
-      <q-table title="Orders" :rows="filteredOrders" :columns="columns" row-key="name" :filter="filter" grid hide-header>
+      <q-table title="Đơn mượn sách của bạn" :rows="filteredOrders" :columns="columns" row-key="name" :filter="filter" grid hide-header>
         <template v-slot:item="props">
           <div class="q-pa-xs col-xs-12 col-sm-6 col-md-4 col-lg-3 grid-style-transition">
             <q-card bordered flat>
               <q-card-section>
                 <q-btn v-if="props.row.status === 'pending'" label="Cancel" color="negative" @click="rejectOrder(props.row._id)" class="q-ml-md" />
-                <h6>{{ props.row.userName }}</h6>
+                <h6>{{ props.row.bookName }}</h6>
               </q-card-section>
               <q-separator />
               <q-list dense>
@@ -51,43 +51,38 @@
       field: 'index'
     },
     {
-      name: 'userId',
-      label: 'User ID',
-      field: 'userId'
-    },
-    {
-      name: 'userName',
-      label: 'User Name',
-      field: 'userName'
+      name: 'orderId',
+      label: 'Order ID',
+      field: '_id'
     },
     {
       name: 'bookName',
-      label: 'Book Name',
+      label: 'Bìa sách',
       field: 'bookName'
     },
     {
       name: 'address',
-      label: 'Address',
+      label: 'Địa chỉ',
       field: 'address'
     },
     {
       name: 'status',
-      label: 'Status',
+      label: 'Trạng thái đơn mượn',
       field: 'status'
     },
     {
       name: 'quantity',
-      label: 'Quantity',
+      label: 'Số lượng',
       field: 'quantity'
     },
     {
       name: 'startDate',
-      label: 'Start Date',
+      label: 'Ngày mượn',
       field: 'startDate'
     },
     {
       name: 'endDate',
-      label: 'End Date',
+      label: 'Yêu cầu trả sách trước ngày',
       field: 'endDate'
     },
   ]

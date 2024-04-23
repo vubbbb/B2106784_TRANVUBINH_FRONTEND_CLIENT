@@ -8,15 +8,14 @@
 
         <!-- Title -->
         <q-toolbar-title v-if="$q.screen.gt.xs" shrink class="row items-center no-wrap">
-          <img src="https://cdn.quasar.dev/img/layout-gallery/logo-google.svg">
-          <span class="q-ml-sm">News</span>
+          <span class="q-ml-sm">Sportbook 2VB</span>
         </q-toolbar-title>
 
         <q-space />
 
         <!-- Search Input -->
         <q-input class="GNL__toolbar-input" outlined dense v-model="search" color="bg-grey-7 shadow-1"
-          placeholder="Search for books" @keypress.enter="searchBooks">
+          placeholder="Nhập tên sách cần tìm" @keypress.enter="searchBooks">
           <template v-slot:prepend>
             <q-icon v-if="search === ''" name="search" />
             <q-icon v-else name="clear" class="cursor-pointer" @click="clearSearch" />
@@ -48,11 +47,8 @@
           <!-- Static Footer Links -->
           <div class="q-mt-md">
             <div class="flex flex-center q-gutter-xs">
-              <a class="GNL__drawer-footer-link" href="https://github.com/vubbbb" aria-label="Privacy">Github</a>
-              <span> · </span>
-              <a class="GNL__drawer-footer-link" href="javascript:void(0)" aria-label="Terms">Terms</a>
-              <span> · </span>
-              <a class="GNL__drawer-footer-link" href="javascript:void(0)" aria-label="About">About Google</a>
+              <a class="GNL__drawer-footer-link" href="https://github.com/vubbbb" aria-label="Privacy"
+                target="_blank">Github</a>
             </div>
           </div>
         </q-list>
@@ -84,10 +80,10 @@ export default {
     // Navigation Links
     const navigationLinks = computed(() => {
       return [
-        { icon: 'web', text: 'Dashboard', link: '/dashboard' },
-        { icon: 'book', text: 'Books', link: '/books' },
-        { icon: 'person', text: 'Account', link: '/user' },
-        { icon: 'inventory', text: 'Your Orders', link: '/orders' }
+        { icon: 'web', text: 'Cập nhật mới', link: '/dashboard' },
+        { icon: 'book', text: 'Sách', link: '/books' },
+        { icon: 'person', text: 'Thông tin tài khoản', link: '/user' },
+        { icon: 'inventory', text: 'Đơn mượn của bạn', link: '/orders' }
       ]
     })
 

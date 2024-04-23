@@ -1,5 +1,5 @@
 <template>
-    <img src="../assets/img0.jpg" class="wave" alt="login-wave">
+    <img src="../assets/loginbackground.jpg" class="wave" alt="login-wave">
     <div class="row" style="height: 90vh">
         <div class="col-0 col-md-6 flex justify-center content-center">
             <img src="../assets/logologin.png" class="responsive" alt="login-image">
